@@ -1,0 +1,55 @@
+﻿@model Employee_Form.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Edit Employee";
+}
+
+<h2>Edit Employee</h2>
+
+<form class="form-horizontal" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="EmpID" class="control-label">Employee ID</label>
+        <input type="text" class="form-control" id="EmpID" name="EmpID" value="@Model.EmpID" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="EmpName" class="control-label">Name</label>
+        <input type="text" class="form-control" id="EmpName" name="EmpName" placeholder="Enter employee name" value="@Model.EmpName" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.EmpName)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="EmpDOB" class="control-label">Date of Birth</label>
+        <input type="text" class="form-control datepicker" id="EmpDOB" name="EmpDOB" placeholder="Enter date of birth" value="@Model.EmpDOB" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.EmpDOB)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="EmpDOJ" class="control-label">Date of Joining</label>
+        <input type="text" class="form-control datepicker" id="EmpDOJ" name="EmpDOJ" placeholder="Enter date of joining" value="@Model.EmpDOJ" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.EmpDOJ)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="EmpSalary" class="control-label">Salary</label>
+        <input type="text" class="form-control" id="EmpSalary" name="EmpSalary" placeholder="Enter salary" value="@Model.EmpSalary" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.EmpSalary)</span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+<div>
+    <a href="@Url.Action("Index")">Back to List</a>
+</div>
+
+
+<style>
+    .form-group{
+        margin-bottom:1rem ; 
+    }
+</style>

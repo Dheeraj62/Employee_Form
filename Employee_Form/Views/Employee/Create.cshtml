@@ -1,0 +1,60 @@
+﻿@model Employee_Form.Models.EmployeeModel
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Create Employee</h2>
+
+            @using (Html.BeginForm("Create", "Employee", FormMethod.Post, new { @class = "needs-validation", novalidate = "" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmpName)
+                    @Html.TextBoxFor(model => model.EmpName, new { @class = "form-control", required = "required" })
+                    <div class="invalid-feedback">
+                        Please provide a name.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmpDOB)
+                    @Html.TextBoxFor(model => model.EmpDOB, new { @class = "form-control", type = "date", required = "required" })
+                    <div class="invalid-feedback">
+                        Please provide a date of birth.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmpDOJ)
+                    @Html.TextBoxFor(model => model.EmpDOJ, new { @class = "form-control", type = "date", required = "required" })
+                    <div class="invalid-feedback">
+                        Please provide a date of joining.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EmpSalary)
+                    @Html.TextBoxFor(model => model.EmpSalary, new { @class = "form-control", type = "number", step = "0.01", required = "required" })
+                    <div class="invalid-feedback">
+                        Please provide a salary.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary my-3">Create</button>
+            }
+        </div>
+    </div>
+</div>
+
+@*<script>
+    // Validate form fields on submit
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            if ($('form')[0].checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            $('form').addClass('was-validated');
+        });
+    });
+</script>
+*@
